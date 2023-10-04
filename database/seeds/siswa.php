@@ -41,7 +41,7 @@ class siswa extends Seeder
         //         'tgl_selesai' => $faker->dateTimeThisCentury,
         //         'created_at' => now(),
         //         'updated_at' => now(),
-            ]);
-        ]);
+        //     ]);
+        // ]);
     }
 }
