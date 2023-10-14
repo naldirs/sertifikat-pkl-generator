@@ -63,7 +63,13 @@
                   <td>{{$s->program_keahlian}}</td>
                   <td>{{$s->tgl_masuk}}</td>
                   <td>{{$s->tgl_selesai}}</td>
-                  <td><center><a class="btn btn-primary btn-sm"  href="{{ route('detail.siswa', $s->id)}}"><i class="fa fa-th-list"></i></a> <a class="btn btn-success btn-sm" href="{{ route('edit.siswa', $s->id)}}"><i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-sm" onclick="return confirm('Hapus data siswa bernama {{$s->nama}}?')" href="{{ route('delete.siswa', $s->id)}}"><i class="fa fa-eraser"></i></a></center></td>
+                  <td><center>
+                    <a class="btn btn-primary btn-sm"  href="{{ route('detail.siswa', $s->id)}}"><i class="fa fa-th-list"></i></a> 
+                    <a class="btn btn-success btn-sm" href="{{ route('edit.siswa', $s->id)}}"><i class="fa fa-edit"></i></a> 
+                    <a class="btn btn-danger btn-sm" onclick="return confirm('Hapus data siswa bernama {{$s->nama}}?')" href="{{ route('delete.siswa', $s->id)}}">
+                        <i class="fa fa-eraser"></i>
+                    </a></center>
+                  </td>
                 </tr>
                 @endforeach
                 @endisset

@@ -37,7 +37,7 @@
 
                 <div class="form-group">
                   <label for="input">Nomor Sertifikat</label>
-                  <input name="no_sertifikat" value="{{$last->no_sertifikat+1}}" type="text" class="form-control" id="input" placeholder="Masukan nomor sertifikat" required="">
+                  <input name="no_sertifikat" value="@isset($last->no_sertifikat) ({{$last->no_sertifikat+1}} @endisset" type="text" class="form-control" id="input" placeholder="Masukan nomor sertifikat" required="">
                 </div>
 
                 <div class="form-group">

@@ -117,7 +117,7 @@
     <div class="kolum kanan">
       <!-- ttd -->
       <p align="center">Samarinda, {{ tglIndo($siswa->created_at)}}
-        <br>{{$signdepan->jabatan}} @isset($signdepan->ket1) <br>{{$signdepan->ket1}} @endisset @isset($signdepan->ket2)<br>{{$signdepan->ket2}}@endisset,<br><br><br><br><br><br><u>{{$signdepan->nama}}</u><br>{{$signdepan->sebagai}}<br>NIP. {{$signdepan->nip}}</td>
+        <br>@isset($signbelakang->jabatan) {{$signdepan->jabatan}} @endisset @isset($signdepan->ket1) <br>{{$signdepan->ket1}} @endisset @isset($signdepan->ket2)<br>{{$signdepan->ket2}}@endisset,<br><br><br><br><br><br><u>@isset($signdepan->nama) {{$signdepan->nama}} @endisset</u><br>@isset($signdepan) {{$signdepan->sebagai}} @endisset<br>@isset($signdepan) NIP. {{$signdepan->nip}} @endisset</td>
       </p>    
     </div>
   </div><br><br>
@@ -307,7 +307,7 @@
       <td width="50%"><strong>Keterangan Nilai Angka & Huruf</strong><br><br>85 S/D 100 &nbsp;&nbsp;&nbsp; A &nbsp; Sangat Memuaskan<br>75 S/D 84 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B &nbsp; Baik<br>70 S/D 74 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C &nbsp; Cukup<br>69 Kebawah &nbsp; D &nbsp; Kurang</td>
       <td></td>
       <td></td>
-      <td align="center" width=50%>Samarinda, {{ tglIndo($siswa->created_at)}}<br>{{$signbelakang->jabatan}} @isset($signbelakang->ket1) <br>{{$signbelakang->ket1}}@endisset @isset($signbelakang->ket2)<br>{{$signbelakang->ket2}} @endisset<br><br><br><br><br><br><u><strong>{{$signbelakang->nama}}</strong></u><br>{{$signbelakang->sebagai}}<br>NIP.19611231 199003 1 061</td>
+      <td align="center" width=50%>Samarinda, {{ tglIndo($siswa->created_at)}}<br>@isset($signbelakang->jabatan) {{$signbelakang->jabatan}} @endisset @isset($signbelakang->ket1) <br>{{$signbelakang->ket1}}@endisset @isset($signbelakang->ket2)<br>{{$signbelakang->ket2}} @endisset<br><br><br><br><br><br><u><strong>@isset($signbelakang->nama) {{$signbelakang->nama}} @endisset</strong></u><br>@isset($signbelakang->sebagai) {{$signbelakang->sebagai}} @endisset<br>NIP.19611231 199003 1 061</td>
     </tr>
   </table>
 </div>
