@@ -15,80 +15,91 @@
 
 @section('kontent')
 
-     <div class="row">
-        <div class="col-xs-12">
-          @include('pesan')
-          @if ($errors->has('name'))
-            
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                          @endif
+<div class="row">
+  <div class="col-xs-12">
+    @include('pesan')
+    @if ($errors->has('name'))
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><i class="icon fa fa-ban"></i> Gagal!</h4>
+      {{ $errors->first('name') }}
+    </div>
+    @endif
 
-          @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-          @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-          
-          <!-- /.box -->
-          
+    @if ($errors->has('email'))
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><i class="icon fa fa-ban"></i> Gagal!</h4>
+      {{ $errors->first('email') }}
+    </div>
+    @endif
+    @if ($errors->has('password'))
+    <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><i class="icon fa fa-ban"></i> Gagal!</h4>
+      {{ $errors->first('password') }}
+    </div>
+    @endif
 
-          <div class="box">
-            <div class="box-header" align="right">
-              <!-- <h3 class="box-title">Data Table With Full Features</h3> -->
-                           
-            </div>
-            <!-- /.box-header -->
+    <!-- /.box -->
 
-            <div class="box-body">          
-              <table id="example1" class="table table-bordered table-striped">
 
-                <thead>
-                <tr>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th width="5%">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                  @foreach($user as $s)
-                <tr>
-                  <td>{{$s->name}}</td>
-                  <td>{{$s->email}}</td>
-                  <td><center><a class="btn btn-danger btn-sm" onclick="return confirm('Hapus username : {{$s->name}}')" href="{{route('delete.user', $s->id)}}"><i class="fa fa-user-times"></i></a></center></td>
-                </tr>
-                  @endforeach
-               
-               
-                </tbody>
-              
-              </table>
-              
-            </div>
+    <div class="box">
+      <div class="box-header" align="right">
+        <!-- <h3 class="box-title">Data Table With Full Features</h3> -->
 
-            <!-- /.box-body -->
-        <div class="box-footer">
-            <a data-toggle="modal" data-target="#tambahuser" class="btn btn-success btn-flat" href="" role="button"><i class="fa fa-user-plus"></i></a>
-        </div>
+      </div>
+      <!-- /.box-header -->
+
+      <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th width="5%">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($user as $s)
+            <tr>
+              <td>{{$s->name}}</td>
+              <td>{{$s->email}}</td>
+              <td>
+                @if(Auth::user()->name != $s->name)
+                <center><a class="btn btn-danger btn-sm" onclick="return confirm('Hapus username : {{$s->name}}')"
+                    href="{{route('delete.user', $s->id)}}"><i class="fa fa-user-times"></i></a></center>
+                @endif
+              </td>
+            </tr>
+            @endforeach
+
+
+          </tbody>
+
+        </table>
+
       </div>
 
-
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <a data-toggle="modal" data-target="#tambahuser" class="btn btn-success btn-flat" href="" role="button"><i
+            class="fa fa-user-plus"></i></a>
       </div>
-      <!-- /.row -->
-      @include('modals.modalstambahuser') 
+    </div>
+
+
+    <!-- /.box -->
+  </div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+@include('modals.modalstambahuser')
 
 
 
-    @endsection
+@endsection
 
 
 @section('script')

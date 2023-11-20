@@ -8,7 +8,7 @@ use Auth;
 
 class UserController extends Controller
 {
-	/**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -17,14 +17,15 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-    
 
-    public function show() {
-    	$user = user::all();
-    	return view('pages.daftarusers',compact('user'));
+
+    public function show()
+    {
+        $user = user::all();
+        return view('pages.daftarusers', compact('user'));
     }
 
-    protected function create(Request $request)
+    public function create(Request $request)
     {
         $request->validate([
             'name' => 'unique:users',
@@ -32,62 +33,55 @@ class UserController extends Controller
             'password' => 'confirmed'
         ]);
 
-        
+        // dd($request);
 
-      
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request['password']);
         $user->save();
 
-        return redirect()->route('user.list')->with('success','Mambuat data user baru');
-
-        
+        return redirect()->route('user.list')->with('success', 'Mambuat data user baru');
     }
 
 
     protected function update(Request $request)
     {
         $user = User::find(Auth::user()->id);
-        
-        if(isset($request->name))
-        {
-           $request->validate([
-            'name' => 'unique:users'
-            ]); 
+
+        if (isset($request->name)) {
+            $request->validate([
+                'name' => 'unique:users'
+            ]);
             $user->name = $request->name;
             $user->save();
-            return redirect()->back()->with('success','Mengedit user');
-        }
-        
-
-        else if(isset($request->email))
-        {
-           $request->validate([
-            'email' => 'unique:users'
-            ]); 
+            return redirect()->back()->with('success', 'Mengedit user');
+        } else if (isset($request->email)) {
+            $request->validate([
+                'email' => 'unique:users'
+            ]);
             $user->email = $request->email;
             $user->save();
-            return redirect()->back()->with('success','Mengedit user');
-        }
-        else if(isset($request->password))
-        {
+            return redirect()->back()->with('success', 'Mengedit user');
+        } else if (isset($request->password)) {
             $request->validate([
-            'password' => 'confirmed'
+                'password' => 'confirmed'
             ]);
-            $user->password = bcrypt($request['password']);  
+            $user->password = bcrypt($request['password']);
             $user->save();
-            return redirect()->back()->with('success','Mengedit user'); 
+            return redirect()->back()->with('success', 'Mengedit user');
         }
-             
+
         $user->save();
-        return redirect()->back();    
+        return redirect()->back();
     }
 
     public function destroy($id)
     {
+        if (Auth::user()->id == $id) {
+            return redirect()->back()->with('warning', 'Tidak dapat menghapus akun sendiri!');
+        }
         user::where('id', $id)->delete();
-        return redirect()->back()->with('warning','Menghapus akun user');
+        return redirect()->back()->with('warning', 'Menghapus akun user');
     }
 }
