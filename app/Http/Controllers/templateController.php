@@ -37,14 +37,36 @@ class templateController extends Controller
         //
     }
 
-    public function tambahpagedepan()
+    public function tambahpagedepan(Request $request)
     {
-        //
+        $asn = new asn;
+        $asn->nama = $request->nama;
+        $asn->nip = $request->nip;
+        $asn->jabatan = $request->jabatan;
+        $asn->ket1 = $request->ket1;
+        $asn->ket2 = $request->ket2;
+        $asn->sebagai = $request->sebagai;
+        $asn->page = 'depan';
+        // dd($request);
+        $asn->save();
+
+        return redirect()->back()->with('success', 'Menambahkan sign page depan');
     }
 
-    public function tambahpagebelakang()
+    public function tambahpagebelakang(Request $request)
     {
-        //
+        $asn = new asn;
+        $asn->nama = $request->nama;
+        $asn->nip = $request->nip;
+        $asn->jabatan = $request->jabatan;
+        $asn->ket1 = $request->ket1;
+        $asn->ket2 = $request->ket2;
+        $asn->sebagai = $request->sebagai;
+        $asn->page = 'belakang';
+        // dd($request);
+        $asn->save();
+
+        return redirect()->back()->with('success', 'Menambahkan sign page belakang');
     }
 
     //edit update controller function
@@ -64,6 +86,7 @@ class templateController extends Controller
         $depan->ket1 = $request->ket1;
         $depan->ket2 = $request->ket2;
         $depan->sebagai = $request->sebagai;
+        $depan->page = 'depan';
         $depan->save();
         return redirect()->route('ks')->with('success', 'Mengedit sign page depan');
     }
@@ -85,6 +108,7 @@ class templateController extends Controller
         $belakang->ket1 = $request->ket1;
         $belakang->ket2 = $request->ket2;
         $belakang->sebagai = $request->sebagai;
+        $belakang->page = 'belakang';
         $belakang->save();
         return redirect()->route('ks')->with('success', 'Mengedit sign page belakang');
     }

@@ -6,8 +6,8 @@
 <li class="active">Sign page</li>
 @endsection
 
-
 @section('template')
+
 <div class="col-md-9">
 
   <div class="box box-primary">
@@ -52,7 +52,8 @@
               @else
               <td colspan="6">-</td>
               <td>depan</td>
-              <td><a class="btn btn-success btn-sm" href="" role="button"><i class="fa fa-user-plus"></i></a></td>
+              <td><a class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambahpagedepan" role="button"><i
+                    class="fa fa-user-plus"></i></a></td>
               @endisset
             </tr>
             <tr>
@@ -64,12 +65,13 @@
               <td>{{$belakang->ket2}}</td>
               <td>{{$belakang->sebagai}}</td>
               <td>{{$belakang->page}}</td>
-              <td><a class="btn btn-success btn-sm" href="{{ route('edit.pagebelakang')}}"><i
-                    class="fa fa-edit"></i></a></td>
+              <td><a class="btn btn-success btn-sm" href="{{route('edit.pagebelakang')}}"
+                  data-target="#tambahpagebelakang"><i class="fa fa-edit"></i></a></td>
               @else
               <td colspan="6">-</td>
               <td>belakang</td>
-              <td><a class="btn btn-success btn-sm" href="" role="button"><i class="fa fa-user-plus"></i></a></td>
+              <td><a class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambahpagebelakang"
+                  role="button"><i class="fa fa-user-plus"></i></a></td>
               @endisset
             </tr>
 
@@ -87,5 +89,8 @@
   </div>
   <!-- /. box -->
 </div>
+@include('pages.template.modaltambahpagebelakang')
+@include('pages.template.modaltambahpagedepan')
+
 
 @endsection

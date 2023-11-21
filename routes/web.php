@@ -54,10 +54,12 @@ Route::get('/template/preview', 'templateController@preview')->name('preview');
 
 
 //template tambah sign page depan
+Route::post('/template/tambahpagedepan', 'templateController@tambahpagedepan')->name('tambah.pagedepan');
 Route::get('/template/editsignpagedepan', 'templateController@enditpagedepan')->name('edit.pagedepan');
 Route::post('/template/updatepagedepan', 'templateController@updatepagedepan')->name('update.pagedepan');
 
 //template tambah sign page belakang
+Route::post('/template/tambahpagebelakang', 'templateController@tambahpagebelakang')->name('tambah.pagebelakang');
 Route::get('/template/editsignpagebelakang', 'templateController@enditpagebelakang')->name('edit.pagebelakang');
 Route::post('/template/updatepagebelakang', 'templateController@updatepagebelakang')->name('update.pagebelakang');
 
