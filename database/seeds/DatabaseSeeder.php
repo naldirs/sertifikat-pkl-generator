@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call('asn');
         $this->call('siswa');
         $this->call('users');
+        $this->call('nilai_kompetensi');
+
 
         $this->command->info('Happy seeding!');
     }
