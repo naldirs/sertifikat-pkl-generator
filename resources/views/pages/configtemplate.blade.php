@@ -33,8 +33,8 @@
               <ul class="nav nav-pills nav-stacked">
                 <li class="@yield('ks')"><a href="{{route('ks')}}"><i class="fa fa-user"></i> Sign page
                   <!-- <span class="label label-primary pull-right">12</span> --></a></li>
-                <li class="@yield('border')"><a href="{{route('border')}}"><i class="fa fa-file-photo-o"></i> Border</a></li>
-                <li class="@yield('preview')"><a href="{{route('preview')}}"><i class="fa fa-file-text-o"></i> Preview</a></li>
+                {{-- <li class="@yield('border')"><a href="{{route('border')}}"><i class="fa fa-file-photo-o"></i> Border</a></li> --}}
+                {{-- <li class="@yield('preview')"><a href="{{route('preview')}}"><i class="fa fa-file-text-o"></i> Preview</a></li> --}}
               </ul>
             </div>
             <!-- /.box-body -->
