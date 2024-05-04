@@ -21,7 +21,7 @@ class asn extends Seeder
         	'page' => 'depan',
             'created_at' => now(),
             'updated_at' => now(),
-        ]);
+         ]);
 
         DB::table('asn')->insert([
         	'nama' => 'Dr. Sudirman, M.Si',
